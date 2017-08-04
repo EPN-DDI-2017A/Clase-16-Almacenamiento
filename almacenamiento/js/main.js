@@ -48,6 +48,9 @@ $(document).ready(function () {
         e.preventDefault();
 
         localStorage.setItem('info_local', 'Chalo local');
+
+        var info = JSON.stringify({chalo: 'local'});
+        localStorage.setItem('info_local2', info);
     });
 
 
@@ -55,6 +58,10 @@ $(document).ready(function () {
         e.preventDefault();
 
         var info_local = localStorage.getItem('info_local');
+        var info_local2 = localStorage.getItem('info_local2');
+
+        var info = JSON.parse(info_local2);
+        console.log(info.chalo);
 
         $('#local').html(info_local);
 
